@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"by.belstu.it.cherniavsky.basejava","l":"JavaTest"},{"p":"by.belstu.it.cherniavsky.basejava","l":"Main"},{"p":"by.belstu.it.cherniavsky.basejava","l":"WrapperString"}];updateSearchResults();
