@@ -12,6 +12,12 @@ public class Belarusbank extends Bank {
 
     public Belarusbank(String number, String adminKey) {
         super(number, adminKey);
+
+        for (Bank b:
+             banks) {
+            if(b.number == number) throw new Error("Банк с таким номером уже существует!");
+        }
+
         banks.add(this); // добавляем банк
     }
 
@@ -21,6 +27,7 @@ public class Belarusbank extends Bank {
 
         user.setId(id);
         members.add(user);
+        log4jLogger.info("В банк " + this.number + " был добавлен клиент");
         id++;
     }
 
@@ -30,5 +37,6 @@ public class Belarusbank extends Bank {
 
         user.setId(-1);
         members.remove(user);
+        log4jLogger.info("Из банка " + this.number + " был удалён клиент");
     }
 }

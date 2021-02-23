@@ -8,7 +8,6 @@ public class Card {
     private int balance;
     private boolean isLocked = false;
 
-    // TODO изменить лок карточки
     public void setLocked(boolean locked, String adminKey) {
         if(this.adminKey == adminKey)
             isLocked = locked;

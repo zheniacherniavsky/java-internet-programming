@@ -19,4 +19,14 @@ public class Admin extends User {
         if(bank.adminCode == this.adminKey) bank.remove(client);
         else System.out.println("Не хватает прав для удаления клиента");
     }
+
+    public void LockCard(Client client)
+    {
+        client.card.setLocked(true, this.adminKey);
+    }
+
+    public void UnlockCard(Client client)
+    {
+        client.card.setLocked(false, this.adminKey);
+    }
 }

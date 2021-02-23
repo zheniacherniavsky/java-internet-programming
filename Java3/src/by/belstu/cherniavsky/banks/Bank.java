@@ -3,6 +3,8 @@ package by.belstu.cherniavsky.banks;
 import by.belstu.cherniavsky.cards.Card;
 import by.belstu.cherniavsky.users.Client;
 import by.belstu.cherniavsky.users.User;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.*;
 
@@ -16,6 +18,8 @@ public abstract class Bank {
      * Служит для добавления информации о созданных банках
      */
     protected static ArrayList<Bank> banks = new ArrayList<>();
+
+    protected final static Logger log4jLogger = LogManager.getLogger(Bank.class);
 
     /** Уникальный код администратора
      * Присваивается администраторам банка для получения доступа к системе
@@ -49,6 +53,7 @@ public abstract class Bank {
                 System.out.println(c);
             }
         }
+        log4jLogger.info("Просмотр клиентов банка");
     }
 
     public void setAdmin(User user)
@@ -58,6 +63,7 @@ public abstract class Bank {
             user.adminKey = this.adminCode;
             System.out.println(String.format("Пользователь с id:%d назначен администратором.",
                     user.getId()));
+            log4jLogger.info(String.format("Пользователь с id:%d назначен администратором.", user.getId()));
         }
         else System.out.println("Этот пользователь не имеет админ прав!");
     }
@@ -68,13 +74,17 @@ public abstract class Bank {
         {
             client.card = new Card(cardNumber, this.number, this.adminCode);
             System.out.println("Карта была создана.");
+            log4jLogger.info("Была создана карточка для клиента с id: " + client.getId());
         }
         else System.out.println("Данного клиента нет в базе данных банка!");
     }
 
     public void addBalance(Card card, int sum) {
         if(card.getBankNumber() == number)
+        {
             card.addBalance(sum, number);
+            log4jLogger.info("На карту " + card.cardNumber + " было зачислено " + sum);
+        }
         else System.out.println("Нет прав для добавления денежных средств на карту");
     }
 

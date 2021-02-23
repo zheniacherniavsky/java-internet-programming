@@ -27,8 +27,6 @@ public abstract class User {
         this.isAdmin = isAdmin;
     }
 
-
-
     @Override
     public String toString() {
         return "User{" +
