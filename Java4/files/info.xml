@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--            xsi:schemaLocation="xmlSchema.xsd">-->
+<userbase>
+
+    <users>
+
+        <user name="Zheka" lastname="Cherniavsky" phone="5312312" birthyear="2002" type="USER"></user>
+        <user name="Vova" lastname="Stankevich" phone="5551112" birthyear="2001" type="USER"></user>
+        <user name="Denis" lastname="Akulov" phone="5888599" birthyear="2000" type="USER"></user>
+
+    </users>
+
+</userbase>
